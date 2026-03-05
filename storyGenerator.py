@@ -133,7 +133,7 @@ It was an unforgettable day!
     sports.grid(row=2,column=1)
     city.grid(row=3,column=1)
     player.grid(row=4,column=1)
-    drink.grid(row=5,column=1)
+    drink.grid(row=5,column=1)  
     breakfast.grid(row=6,column=1)
 
     Button(new,text="Generate Story",command=final).grid(row=7,column=0,columnspan=2,pady=10)
