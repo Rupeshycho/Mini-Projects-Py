@@ -96,9 +96,52 @@ def Story2(win):
     
     submitButton= Button(NewScreen, text="Submit", background="skyblue", font=('Times', 12), command=lambda:final(NewScreen, occupation.get(), randomNoun.get(), feeling.get(), emotion.get(), verb.get()))
     submitButton.place(x=150, y=250)
-    
-    
-    
+
+def Story3(win):
+
+    def final():
+        text=f"""
+One day me and my bestie {name.get()} decided to play {sports.get()} in {city.get()}.
+But we couldn't play, so we watched {player.get()}.
+We drank {drink.get()} and had {breakfast.get()} for breakfast.
+It was an unforgettable day!
+"""
+        result.config(text=text)
+
+    new = Toplevel(win)
+    new.title("Unforgettable Day")
+
+    Label(new, text="Unforgettable Day", font=("Times",16)).grid(row=0,column=0,columnspan=2,pady=10)
+
+    Label(new,text="Friend name").grid(row=1,column=0)
+    Label(new,text="Sport").grid(row=2,column=0)
+    Label(new,text="City").grid(row=3,column=0)
+    Label(new,text="Player").grid(row=4,column=0)
+    Label(new,text="Drink").grid(row=5,column=0)
+    Label(new,text="Breakfast").grid(row=6,column=0)
+
+    global name,sports,city,player,drink,breakfast
+
+    name=Entry(new)
+    sports=Entry(new)
+    city=Entry(new)
+    player=Entry(new)
+    drink=Entry(new)
+    breakfast=Entry(new)
+
+    name.grid(row=1,column=1)
+    sports.grid(row=2,column=1)
+    city.grid(row=3,column=1)
+    player.grid(row=4,column=1)
+    drink.grid(row=5,column=1)
+    breakfast.grid(row=6,column=1)
+
+    Button(new,text="Generate Story",command=final).grid(row=7,column=0,columnspan=2,pady=10)
+
+    global result
+    result=Label(new,text="",wraplength=400)
+    result.grid(row=8,column=0,columnspan=2)    
+
 Screen=Tk()
 Screen.title("Generate Story and Goals ")
 Screen.geometry('400x400')
@@ -113,7 +156,19 @@ Story1Button.place(x=130, y=90)
 story2Button=Button(Screen, text="Goals", font=('Times', 14), command=lambda: Story2(Screen), bg='gray')
 story2Button.place(x=160, y=150)
 
+story3Button=Button(Screen, text="Grid: Unforgettable Days", font=('Times', 14), command=lambda: Story3(Screen), bg='gray')
+story3Button.place(x=120, y=210)
+
+
 Screen.update()
 Screen.mainloop()
   
         
+        
+
+
+
+
+
+
+
